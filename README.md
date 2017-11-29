@@ -15,6 +15,7 @@
         - [提交更新](#提交更新)
         - [跳过使用暂存区域](#跳过使用暂存区域)
         - [移除文件](#移除文件)
+    - [查看提交历史](#查看提交历史)
 
 <!-- /TOC -->
 # Pro_Git
@@ -150,3 +151,37 @@ $ git commit -a -m "提交说明"
 //提交之前不再需要 git add ，就可以提交最新的修改了
 ```
 ### 移除文件
+执行完 `git commit` 后发现多了个不想提交的文件，这里使用：
+
+``` git
+$ git rm '文件名'
+
+//输出
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    test.txt
+
+```
+再次提交的时候就提示：
+``` git 
+$ git commit -a -m "删除文件"
+[master b71ea57] 删除文件
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 test.txt
+```
+删除成功。
+
+> `git rm` 删除会连同本地文件一起删除。
+
+如果添加进缓存区，还没有提交，`git rm` 是无法删除的，要使用：
+``` git 
+$ git rm -f "文件名"
+//强制删除
+```
+
+## 查看提交历史
