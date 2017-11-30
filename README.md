@@ -17,6 +17,8 @@
         - [移除文件](#移除文件)
     - [查看提交历史](#查看提交历史)
     - [撤消操作](#撤消操作)
+        - [取消暂存的文件](#取消暂存的文件)
+        - [撤消对文件的修改](#撤消对文件的修改)
 
 <!-- /TOC -->
 # Pro_Git
@@ -217,3 +219,17 @@ $ git commit -m 'initial commit'
 $ git add forgotten_file
 $ git commit --amend
 ```
+然后用`git log`命令查看提交记录发现提交记录（最新一条）只是变化不是新增
+
+### 取消暂存的文件
+
+平时我们提交基本都是 `git add *` 把文件存在暂缓存区，因为我们通过`.gitignore`文件把不想提交的都排除了，但还是有个文件要取消暂缓存区,我们这么做：`git reset HEAD <file>...` 来取消暂存。
+``` git
+$ git reset HEAD CONTRIBUTING.md
+```
+
+### 撤消对文件的修改
+``` git
+$ git checkout -- CONTRIBUTING.md
+```
+> 慎用刚才修改的内容被还原了
