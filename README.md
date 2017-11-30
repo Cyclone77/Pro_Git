@@ -232,4 +232,4 @@ $ git reset HEAD CONTRIBUTING.md
 ``` git
 $ git checkout -- CONTRIBUTING.md
 ```
-> 慎用刚才修改的内容被还原了
+> 慎用：刚才修改的内容被还原到上一次提交的状态
